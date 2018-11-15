@@ -6,7 +6,7 @@
         #select {
             position: absolute;
             top: 5px;
-            left: 390px;
+            left: 190px;
             width: 50px;
             height: 15px;
             /*设置字体的大小*/
@@ -20,8 +20,8 @@
         /*颜色的CSS把冒号以及以后的删除，再输入冒号空格即可直接选*/
         .blue{
             /*第一个是设置背景色，第二个是字体的颜色*/
-            background-color: #0000FF;
-            color: #FFF;
+            background-color: #FFF;
+            color: #F08080;
         }
     </style>
 </head>
@@ -76,7 +76,7 @@
                 var categories = [];
                 for (var i = 0; i < 9; i++) {
                     categories[i] = {
-                        name: '概率' + i
+                        name: '因素' + (i+1)
                     };
                 }
                 graph.nodes.forEach(function (node) {
@@ -92,7 +92,8 @@
                 });
                 option = {
                     title: {
-                        text: 'Crimes in taxis',
+                        text: '2017年全国出租车服务过程中犯罪情况',
+                        link: 'http://www.court.gov.cn/zixun-xiangqing-120431.html',
                         subtext: 'Circular layout',
                         top: 'bottom',
                         left: 'right'

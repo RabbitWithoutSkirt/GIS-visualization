@@ -2,9 +2,41 @@
 <html style="height: 100%">
 <head>
     <meta charset="utf-8">
+    <!--<link rel="stylesheet" type="text/css" href="css/content.css" />-->
+    <style>
+        .content{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0 auto;
+        }
+        .hidden {
+            position: absolute;
+            overflow: hidden;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            z-index: 0;
+            padding:0 0;
+        }
+    </style>
 </head>
 <body style="height: 100%; margin: 0">
 <div id="container" style="height: 100%"></div>
+<svg class="hidden">
+    <symbol id="icon-arrow-nav" viewBox="208.3 352 4.2 6.4">
+        <title>arrow-nav</title>
+        <polygon points="212.1,357.3 211.5,358 208.7,355.1 211.5,352.3 212.1,353 209.9,355.1"></polygon>
+    </symbol>
+</svg>
+
+<div class="content">
+    <button class="scene-nav scene-nav--prev" data-nav="previous"><svg class="icon icon--arrow-nav-prev"><use xlink:href="#icon-arrow-nav"></use></svg></button>
+    <button class="scene-nav scene-nav--next" style="right:0px" data-nav="next"><svg class="icon icon--arrow-nav-next"><use xlink:href="#icon-arrow-nav"></use></svg></button>
+</div>
+
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
