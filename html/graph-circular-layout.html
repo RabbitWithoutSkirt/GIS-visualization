@@ -2,6 +2,9 @@
 <html style="height: 100%">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         #select {
             position: absolute;
@@ -23,10 +26,26 @@
             background-color: #FFF;
             color: #F08080;
         }
+        .btn1{
+            position: absolute;
+            top: 300px;
+            left: 5px;
+            width: 50px;
+            height: 15px;
+        }
+        .btn2{
+            position: absolute;
+            top: 300px;
+            right: 5px;
+            width: 50px;
+            height: 15px;
+        }
     </style>
 </head>
 <body style="height: 100%; margin: 0">
 <div id="container" style="height: 100%"></div>
+<a class="btn1" href="effectScatter-bmap.html">previous</a>
+<a class="btn2" href="mix-timeline-finance.html">next</a>
 <select id="select" class="blue">
     <option class="blue" value="multiple">多选</option>
     <option class="blue" value="single">单选</option>
