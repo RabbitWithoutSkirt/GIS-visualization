@@ -1,293 +1,280 @@
 <!DOCTYPE html>
 <html style="height: 100%">
-<head>
-    <meta charset="utf-8">
-</head>
-<body style="height: 100%; margin: 0">
-<div id="container" style="height: 100%"></div>
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
-<script type="text/javascript"
-        src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
-<script type="text/javascript">
-    var dom = document.getElementById("container");
-    var myChart = echarts.init(dom);
-    var app = {};
-    option = null;
-    var data = [
-        {name: '北京市', value: 278},
-        {name: '天津市', value: 31940},
-        {name: '河北省', value: 53034},
-        {name: '山西省', value: 30690},
-        {name: '内蒙古自治区', value: 45499},
-        {name: '辽宁省', value: 80743},
-        {name: '吉林省', value: 56413},
-        {name: '黑龙江省', value: 64158},
-        {name: '上海市', value: 47271},
-        {name: '江苏省', value: 53376},
-        {name: '浙江省', value: 37781},
-        {name: '安徽省', value: 39199},
-        {name: '福建省', value: 21727},
-        {name: '江西省', value: 13712},
-        {name: '山东省', value: 61314},
-        {name: '河南省', value: 46598},
-        {name: '湖北省', value: 36415},
-        {name: '湖南省', value: 26173},
-        {name: '广东省', value: 68504},
-        {name: '广西壮族自治区', value: 17337},
-        {name: '海南省', value: 6683},
-        {name: '重庆市', value: 21100},
-        {name: '四川省', value: 33394},
-        {name: '贵州省', value: 19021},
-        {name: '云南省', value: 19130},
-        {name: '西藏自治区', value: 1882},
-        {name: '陕西省', value: 24458},
-        {name: '甘肃省', value: 23395},
-        {name: '青海省', value: 8344},
-        {name: '宁夏回族自治区', value: 12504},
-        {name: '新疆维吾尔自治区', value: 32284}
-    ];
-    var geoCoordMap = {
-        '北京市': [116.46, 39.92],
-        '天津市': [117.2, 39.13],
-        '河北省': [114.48, 38.03],
-        '山西省': [112.53, 37.87],
-        '内蒙古自治区': [111.65, 40.82],
-        '辽宁省': [123.38, 41.8],
-        '吉林省': [125.35, 43.88],
-        '黑龙江省': [126.63, 45.75],
-        '上海市': [121.48, 31.22],
-        '江苏省': [118.78, 32.04],
-        '浙江省': [120.19, 30.26],
-        '安徽省': [117.27, 31.86],
-        '福建省': [119.3, 26.08],
-        '江西省': [115.89, 28.68],
-        '山东省': [117, 36.65],
-        '河南省': [113.65, 34.76],
-        '湖北省': [114.31, 30.52],
-        '湖南省': [113, 28.21],
-        '广东省': [113.23, 23.16],
-        '广西壮族自治区': [108.33, 22.84],
-        '海南省': [110.35, 20.02],
-        '重庆市': [106.54, 29.59],
-        '四川省': [104.06, 30.67],
-        '贵州省': [106.71, 26.57],
-        '云南省': [102.73, 25.04],
-        '西藏自治区': [91.11, 29.97],
-        '陕西省': [108.95, 34.27],
-        '甘肃省': [103.73, 36.03],
-        '青海省': [101.74, 36.56],
-        '宁夏回族自治区': [106.27, 38.47],
-        '新疆维吾尔自治区': [87.68, 43.77]
-    };
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var data = [
+    {name:'北京市', value: 68484 },
+    {name:'天津市'	,value:	 31940	},
+    {name:'河北省'	,value:	53034	},
+    {name:'山西省'	,value:	30690	},
+    {name:'内蒙古自治区'	,value:	45499	},
+    {name:'辽宁省'	,value:	80743	},
+    {name:'吉林省'	,value:	56413	},
+    {name:'黑龙江省'	,value:	64158	},
+    {name:'上海市'	,value:	47271	},
+    {name:'江苏省'	,value:	53376	},
+    {name:'浙江省'	,value:	37781	},
+    {name:'安徽省'	,value:	39199	},
+    {name:'福建省'	,value:	21727	},
+    {name:'江西省'	,value:	13712	},
+    {name:'山东省'	,value:	61314	},
+    {name:'河南省'	,value:	46598	},
+    {name:'湖北省'	,value:	36415	},
+    {name:'湖南省'	,value:	26173	},
+    {name:'广东省'	,value:	68504	},
+    {name:'广西壮族自治区'	,value:	17337	},
+    {name:'海南省'	,value:	6683	},
+    {name:'重庆市'	,value:	21100	},
+    {name:'四川省'	,value:	33394	},
+    {name:'贵州省'	,value:	19021	},
+    {name:'云南省'	,value:	19130	},
+    {name:'西藏自治区'	,value:	1882	},
+    {name:'陕西省'	,value:	24458	},
+    {name:'甘肃省'	,value:	23395	},
+    {name:'青海省'	,value:	8344	},
+    {name:'宁夏回族自治区'	,value:	12504	},
+    {name:'新疆维吾尔自治区'	,value:	32284	}
+];
+var geoCoordMap = {
+    '北京市':[116.46,39.92],
+    '天津市':[117.2,39.13],
+    '河北省':[114.48,38.03],
+    '山西省':[112.53,37.87],
+    '内蒙古自治区':[111.65,40.82],
+    '辽宁省':[123.38,41.8],
+    '吉林省':[125.35,43.88],
+    '黑龙江省':[126.63,45.75],
+    '上海市':[121.48,31.22],
+    '江苏省':[118.78,32.04],
+    '浙江省':[120.19,30.26],
+    '安徽省':[117.27,31.86],
+    '福建省':[119.3,26.08],
+    '江西省':[115.89,28.68],
+    '山东省':[117,36.65],
+    '河南省':[113.65,34.76],
+    '湖北省':[114.31,30.52],
+    '湖南省':[113,28.21],
+    '广东省':[113.23,23.16],
+    '广西壮族自治区':[108.33,22.84],
+    '海南省':[110.35,20.02],
+    '重庆市':[106.54,29.59],
+    '四川省':[104.06,30.67],
+    '贵州省':[106.71,26.57],
+    '云南省':[102.73,25.04],
+    '西藏自治区':[91.11,29.97],
+    '陕西省':[108.95,34.27],
+    '甘肃省':[103.73,36.03],
+    '青海省':[101.74,36.56],
+    '宁夏回族自治区':[106.27,38.47],
+    '新疆维吾尔自治区':[87.68,43.77]
+};
 
-    var convertData = function (data) {
-        var res = [];
-        for (var i = 0; i < data.length; i++) {
-            var geoCoord = geoCoordMap[data[i].name];
-            if (geoCoord) {
-                res.push({
-                    name: data[i].name,
-                    value: geoCoord.concat(data[i].value)
-                });
-            }
+var convertData = function (data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+        var geoCoord = geoCoordMap[data[i].name];
+        if (geoCoord) {
+            res.push({
+                name: data[i].name,
+                value: geoCoord.concat(data[i].value)
+            });
         }
-        return res;
-    };
+    }
+    return res;
+};
 
-    option = {
-        title: {
-            text: '2017年全国各省市出租车数量',
-            subtext: '国家数据',
-            sublink: 'http://data.stats.gov.cn/easyquery.htm?cn=E0103',
-            left: 'center'
-        },
-        tooltip: {
-            trigger: 'item'
-        },
-        visualMap: {
-            min: 10,
-            max: 100,
-            calculable: true,
-            inRange: {
-                color: ['#50a3ba', '#eac736', '#d94e5d']
+option = {
+    title: {
+        text: '2017年全国各省市出租车数量',
+        subtext: '国家统计局',
+        sublink: 'http://data.stats.gov.cn/easyquery.htm?cn=E0103',
+        left: 'center'
+    },
+    tooltip : {
+        trigger: 'item'
+    },
+    bmap: {
+        center: [104.114129, 37.550339],
+        zoom: 5,
+        roam: true,
+        mapStyle: {
+            styleJson: [{
+                'featureType': 'water',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'land',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#f3f3f3'
+                }
+            }, {
+                'featureType': 'railway',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'highway',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#fdfdfd'
+                }
+            }, {
+                'featureType': 'highway',
+                'elementType': 'labels',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'arterial',
+                'elementType': 'geometry',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'arterial',
+                'elementType': 'geometry.fill',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'poi',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'green',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'subway',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'manmade',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'local',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'arterial',
+                'elementType': 'labels',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'boundary',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'building',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'label',
+                'elementType': 'labels.text.fill',
+                'stylers': {
+                    'color': '#999999'
+                }
+            }]
+        }
+    },
+    series : [
+        {
+            name: 'taxi',
+            type: 'scatter',
+            coordinateSystem: 'bmap',
+            data: convertData(data),
+            symbolSize: function (val) {
+                return val[2] / 1550;
             },
-            textStyle: {
-                color: '#fff'
-            }
-        },
-        bmap: {
-            center: [104.114129, 37.550339],
-            zoom: 5,
-            roam: true,
-            mapStyle: {
-                styleJson: [{
-                    'featureType': 'water',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#d1d1d1'
-                    }
-                }, {
-                    'featureType': 'land',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#f3f3f3'
-                    }
-                }, {
-                    'featureType': 'railway',
-                    'elementType': 'all',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'highway',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#fdfdfd'
-                    }
-                }, {
-                    'featureType': 'highway',
-                    'elementType': 'labels',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'arterial',
-                    'elementType': 'geometry',
-                    'stylers': {
-                        'color': '#fefefe'
-                    }
-                }, {
-                    'featureType': 'arterial',
-                    'elementType': 'geometry.fill',
-                    'stylers': {
-                        'color': '#fefefe'
-                    }
-                }, {
-                    'featureType': 'poi',
-                    'elementType': 'all',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'green',
-                    'elementType': 'all',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'subway',
-                    'elementType': 'all',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'manmade',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#d1d1d1'
-                    }
-                }, {
-                    'featureType': 'local',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#d1d1d1'
-                    }
-                }, {
-                    'featureType': 'arterial',
-                    'elementType': 'labels',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'boundary',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#fefefe'
-                    }
-                }, {
-                    'featureType': 'building',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#d1d1d1'
-                    }
-                }, {
-                    'featureType': 'label',
-                    'elementType': 'labels.text.fill',
-                    'stylers': {
-                        'color': '#999999'
-                    }
-                }]
-            }
-        },
-        series: [
-            {
-                name: 'pm2.5',
-                type: 'scatter',
-                coordinateSystem: 'bmap',
-                data: convertData(data),
-                symbolSize: function (val) {
-                    return val[2] / 2000;
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false
                 },
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: false
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: 'purple'
-                    }
+                emphasis: {
+                    show: true
                 }
             },
-            {
-                name: 'Top 5',
-                type: 'effectScatter',
-                coordinateSystem: 'bmap',
-                data: convertData(data.sort(function (a, b) {
-                    return b.value - a.value;
-                }).slice(0, 6)),
-                symbolSize: function (val) {
-                    return val[2] / 2000;
-                },
-                showEffectOn: 'render',
-                rippleEffect: {
-                    brushType: 'stroke'
-                },
-                hoverAnimation: true,
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: 'purple',
-                        shadowBlur: 10,
-                        shadowColor: '#333'
-                    }
-                },
-                zlevel: 1
+            itemStyle: {
+                normal: {
+                    color: 'purple'
+                }
             }
-        ]
-    };
-    ;
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-    }
-</script>
-</body>
+        },
+        {
+            name: 'Top 6',
+            type: 'effectScatter',
+            coordinateSystem: 'bmap',
+            data: convertData(data.sort(function (a, b) {
+                return b.value - a.value;
+            }).slice(0, 6)),
+            symbolSize: function (val) {
+                return val[2] / 1550;
+            },
+            showEffectOn: 'render',
+            rippleEffect: {
+                brushType: 'stroke'
+            },
+            hoverAnimation: true,
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: true
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'purple',
+                    shadowBlur: 10,
+                    shadowColor: '#333'
+                }
+            },
+            zlevel: 1
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
 </html>
