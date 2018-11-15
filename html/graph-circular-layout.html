@@ -5,18 +5,31 @@
     <style>
         #select {
             position: absolute;
-            top: 30px;
-            left: 20px;
-            width: 20px;
-            height: 10px;
+            top: 5px;
+            left: 390px;
+            width: 50px;
+            height: 15px;
+            /*设置字体的大小*/
+            font-size: 10px;
+            /*下面四个是设置圆角的*/
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 7px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 7px;
+        }
+        /*颜色的CSS把冒号以及以后的删除，再输入冒号空格即可直接选*/
+        .blue{
+            /*第一个是设置背景色，第二个是字体的颜色*/
+            background-color: #0000FF;
+            color: #FFF;
         }
     </style>
 </head>
 <body style="height: 100%; margin: 0">
 <div id="container" style="height: 100%"></div>
-<select id="select">
-    <option value="multiple">多选</option>
-    <option value="single">单选</option>
+<select id="select" class="blue">
+    <option class="blue" value="multiple">多选</option>
+    <option class="blue" value="single">单选</option>
 </select>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
