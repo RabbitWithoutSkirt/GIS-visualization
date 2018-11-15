@@ -15,8 +15,8 @@
 <body style="height: 100%; margin: 0">
 <div id="container" style="height: 100%"></div>
 <select id="select">
-    <option value="single">single</option>
-    <option value="multiple">multiple</option>
+    <option value="multiple">多选</option>
+    <option value="single">单选</option>
 </select>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
@@ -31,13 +31,23 @@
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript">
 
+//    $(function () {
+//        $('#select').on('change',function () {
+//            var val = $(this).val();
+//            _try(val);
+//        })
+//    });
+
     $(function () {
-        $('#select').on('change',function () {
-            var val = 'multiple';
-            val = $(this).val();
+        var value = document.getElementById("select");
+        var val = value.value;
+        _try(val);
+
+        $('#select').on('change', function () {
+            var val = $(this).val();
             _try(val);
         })
-    });
+    })
 
     dom = document.getElementById("container");
     var myChart = echarts.init(dom);
